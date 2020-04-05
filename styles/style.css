@@ -1,0 +1,226 @@
+html {
+    --primary-color: #cea204;
+    --light-text: #93979c;
+}
+
+body {
+    --bc-color: #fcfdee;
+    --secondary-color: #3e4144;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background-color: var(--bc-color);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input#dark {
+    position: fixed;
+    width: 0;
+    height: 0;
+}
+
+#dark:checked~.post {
+    --bc-color: #3e4144;
+    --secondary-color: #fcfdee;
+}
+
+label {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+}
+
+label::before {
+    content: '\26ED';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    padding: 3px;
+    line-height: 1;
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    transition: all .3s;
+}
+
+label::after {
+    content: '\263D';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    padding: 3px;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+#dark:checked~label {
+    background-color: #fff;
+}
+
+#dark:checked~label::before {
+    content: '\263D';
+    left: 20px;
+}
+
+#dark:checked~label::after {
+    content: '\26ED';
+    left: 0px;
+    color: var(--secondary-color);
+}
+
+header {
+    height: 22vw;
+    min-height: 204px;
+    margin-bottom: 30px;
+    background-color: var(--primary-color);
+    background-image: url(../assets/wave.svg);
+    background-position: bottom;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    text-align: left;
+    position: relative;
+}
+
+header:before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: var(--bc-color);
+    position: absolute;
+    bottom: -1px;
+}
+
+h1 {
+    color: #fff;
+    padding: 5vw;
+    font: normal 40px "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    margin: 0;
+}
+
+header h1 span {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 30px;
+    position: relative;
+}
+
+h1 span:after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    right: 19px;
+    border: solid 10px transparent;
+    border-top: solid 10px #fff;
+}
+
+header h4 {
+    position: absolute;
+    left: 55%;
+    height: 55px;
+    bottom: 20px;
+    max-width: 37%;
+    color: var(--light-text);
+    font-weight: normal;
+    text-align: center;
+}
+
+.post {
+    width: 800px;
+    max-width: 95%;
+    margin: auto;
+    background: transparent;
+    padding: 10px 5vw 30px;
+    border-radius: 15px;
+    background-color: var(--bc-color);
+}
+
+.post h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 30px;
+}
+
+.post span {
+    color: var(--light-text);
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.post a img {
+    width: 20px;
+    border-radius: 0;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.post img {
+    width: 500px;
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+.post p {
+    text-align: justify;
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.post p:first-of-type::first-letter {
+    color: var(--primary-color);
+    font-size: 30px;
+}
+
+@media screen and (min-width: 800px) {
+    header h4 {
+        font-size: 2vw;
+    }
+    br {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+    header h4 {
+        height: 21px;
+    }
+    br {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header h4 {
+        left: 56%;
+        top: 130px;
+        max-width: 44%;
+        font-size: 14px;
+    }
+    .post p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header h4 {
+        left: 52%;
+        top: 140px;
+    }
+}
